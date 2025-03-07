@@ -692,19 +692,52 @@ html {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .project-carousel {
-    height: 450px;
+    height: 500px;
+    /* Adjust if needed */
   }
 
-  .carousel-control {
-    padding: 0.5rem 0.3rem;
+  .flip-card {
+    width: 95%;
+    height: 95%;
   }
 
+  .flip-card-front {
+    padding: 1rem;
+  }
+
+  /* Fix overflow issues */
+  .project-carousel-container {
+    overflow: hidden;
+  }
+
+  /* Adjust title size on smaller screens */
+  .flip-card-front h3,
   .flip-card-back h5 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
+  /* Make buttons stack vertically on very small screens */
+  .project-links {
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+  }
+
+  .project-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Adjust text size for readability */
+  .flip-card-front p,
   .flip-card-back p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  /* Keep tech tags from overflowing */
+  .tech-tags {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -720,6 +753,79 @@ html {
 
   .section-title {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 360px) {
+
+  /* Make the carousel container fit */
+  .project-carousel {
+    height: 420px;
+  }
+
+  /* Make the card itself smaller */
+  .flip-card {
+    width: 100%;
+    height: 90%;
+  }
+
+  /* Reduce padding to maximize space */
+  .flip-card-front,
+  .flip-card-back {
+    padding: 0.75rem;
+  }
+
+  /* Shrink title further */
+  .flip-card-front h3,
+  .flip-card-back h5 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Further minimize the description */
+  .flip-card-front p,
+  .flip-card-back p {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
+  /* Make tech tags smaller */
+  .tech-tags {
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .tech-tag {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  /* Maximize button space */
+  .project-links {
+    width: 100%;
+  }
+
+  .project-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  /* Adjust icon size */
+  .project-link::before {
+    font-size: 0.9rem;
+    margin-right: 0.3rem;
+  }
+
+  /* Adjust carousel controls */
+  .carousel-control {
+    padding: 0.5rem 0.25rem;
+  }
+
+  /* Make navigation dots smaller */
+  .carousel-indicator {
+    width: 8px;
+    height: 8px;
   }
 }
 

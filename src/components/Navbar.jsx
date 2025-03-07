@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = ({ activeSection, onNavigate }) => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -49,6 +50,9 @@ const Navbar = ({ activeSection, onNavigate }) => {
                     </li>
                     <li className={activeSection === "contact" ? "active" : ""}>
                         <button onClick={() => handleNavClick("contact")}>Contact</button>
+                    </li>
+                    <li>
+                        <ThemeToggle />
                     </li>
                 </ul>
             </div>

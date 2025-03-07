@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
+import { DarkThemeProvider } from './context/DarkTheme';
 import "./index.css";
 
 
@@ -18,32 +19,34 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <Navbar activeSection={activeSection} onNavigate={navigateToSection} />
-      <main>
-        <section id="home">
-          <Hero />
-        </section>
+    <DarkThemeProvider>
+      <div className="app">
+        <Navbar activeSection={activeSection} onNavigate={navigateToSection} />
+        <main>
+          <section id="home">
+            <Hero />
+          </section>
 
-        <section id="about">
-          <About />
-        </section>
+          <section id="about">
+            <About />
+          </section>
 
-        <section id="projects">
-          <Projects />
-        </section>
+          <section id="projects">
+            <Projects />
+          </section>
 
-        <section id="contact">
-          <h3>Contact</h3>
-        </section>
-      </main>
+          <section id="contact">
+            <h3>Contact</h3>
+          </section>
+        </main>
 
-      <footer className="main-footer">
-        <div className="container">
-          <p>&copy; {new Date().getFullYear()} James Burch. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
+        <footer className="main-footer">
+          <div className="container">
+            <p>&copy; {new Date().getFullYear()} James Burch. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+    </DarkThemeProvider>
   );
 };
 

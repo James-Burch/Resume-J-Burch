@@ -6,6 +6,20 @@
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --card-bg: #f8f8f8;
+  --border-color: #e0e0e0;
+  --navbar-scrolled-bg: white;
+  --navbar-scrolled-shadow: rgba(0, 0, 0, 0.1);
+  --menu-shadow: rgba(0, 0, 0, 0.1);
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --carousel-control-bg: rgba(0, 0, 0, 0.5);
+  --carousel-control-hover: rgba(0, 0, 0, 0.7);
+  --project-link-bg: rgba(0, 0, 0, 0.2);
+  --project-link-hover: rgba(0, 0, 0, 0.4);
+  --tech-tag-bg: rgba(255, 255, 255, 0.2);
+  --theme-toggle-hover: rgba(128, 128, 128, 0.1);
 }
 
 * {
@@ -14,11 +28,34 @@
   padding: 0;
 }
 
+.dark-mode {
+  /* Dark mode */
+  --primary-color: #4dabf7;
+  --secondary-color: #339af0;
+  --dark-color: #e0e0e0;
+  --light-color: #222222;
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --border-color: #333333;
+  --navbar-scrolled-bg: #1a1a1a;
+  --navbar-scrolled-shadow: rgba(0, 0, 0, 0.4);
+  --menu-shadow: rgba(0, 0, 0, 0.4);
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  --carousel-control-bg: rgba(0, 0, 0, 0.6);
+  --carousel-control-hover: rgba(0, 0, 0, 0.8);
+  --project-link-bg: rgba(255, 255, 255, 0.1);
+  --project-link-hover: rgba(255, 255, 255, 0.2);
+  --tech-tag-bg: rgba(255, 255, 255, 0.15);
+  --theme-toggle-hover: rgba(255, 255, 255, 0.1);
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: var(--dark-color);
-  background-color: #fff;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -79,8 +116,8 @@ html {
 }
 
 .navbar.scrolled {
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--navbar-scrolled-bg);
+  box-shadow: 0 2px 10px var(--navbar-scrolled-shadow);
   padding: 1rem 0;
 }
 
@@ -109,7 +146,7 @@ html {
 .navbar-links li button {
   background: none;
   border: none;
-  color: var(--dark-color);
+  color: var(--text-color);
   font-size: 1rem;
   cursor: pointer;
   padding: 0.5rem;
@@ -142,7 +179,7 @@ html {
   position: absolute;
   height: 3px;
   width: 100%;
-  background: var(--dark-color);
+  background: var(--text-color);
   border-radius: 3px;
   opacity: 1;
   left: 0;
@@ -189,17 +226,36 @@ html {
     right: -100%;
     width: 70%;
     height: 100vh;
-    background-color: white;
+    background-color: var(--bg-color);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: right 0.3s ease;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: -5px 0 15px var(--menu-shadow);
   }
 
   .navbar-links.open {
     right: 0;
   }
+}
+
+/* Style for theme toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--theme-toggle-hover);
 }
 
 /* ------------------------------------- Hero Styles */
@@ -225,7 +281,7 @@ html {
 .hero-content h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: var(--dark-color);
+  color: var(--text-color);
 }
 
 .hero-content p {
@@ -292,7 +348,7 @@ html {
 /* ------------------------------------- About Styles */
 
 .about-section {
-  background-color: #fff;
+  background-color: var(--bg-color);
   padding: 5rem 0;
 }
 
@@ -389,7 +445,7 @@ html {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px var(--card-shadow);
   height: 500px;
 }
 
@@ -444,7 +500,7 @@ html {
 }
 
 .flip-card-front {
-  background-color: #f8f8f8;
+  background-color: var(--card-bg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -489,7 +545,7 @@ html {
 }
 
 .tech-tag {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--tech-tag-bg);
   padding: 0.3rem 0.7rem;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -504,13 +560,13 @@ html {
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--project-link-bg);
   border-radius: 4px;
   transition: background-color 0.3s;
 }
 
 .project-link:hover {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--project-link-hover);
 }
 
 /* Carousel Controls */
@@ -518,7 +574,7 @@ html {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--carousel-control-bg);
   border: none;
   color: white;
   padding: 1rem 0.5rem;
@@ -529,7 +585,7 @@ html {
 }
 
 .carousel-control:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--carousel-control-hover);
 }
 
 .carousel-control-prev {
@@ -622,7 +678,6 @@ html {
 }
 
 /* ------------------------------------- Navbar Styles */
-
 
 
 /* ------------------------------------- Navbar Styles */

@@ -23,8 +23,8 @@ const ProjectCarousel = () => {
             liveSite: "https://james-burch.github.io/Project2-CI/",
             repository: "https://github.com/James-Burch/Project2-CI",
             technologies: ["HTML", "CSS", "JavaScript"]
-          },
-          {
+        },
+        {
             id: 3,
             title: "Fitness Tracker App",
             description: "A small and simple fitness tracker app built using Python with a frontend terminal to showcase.",
@@ -32,8 +32,8 @@ const ProjectCarousel = () => {
             liveSite: "https://fitness-tracker-pp3-ac30d4f35dab.herokuapp.com/",
             repository: "https://github.com/James-Burch/Project-3",
             technologies: ["Python", "Terminal UI"]
-          },
-          {
+        },
+        {
             id: 4,
             title: "Golf Booking Website",
             description: "A full-featured golf booking website built using Django and Bootstrap with user authentication and database integration.",
@@ -41,8 +41,8 @@ const ProjectCarousel = () => {
             liveSite: "https://pp4-django-project-082841c8663e.herokuapp.com/",
             repository: "https://github.com/James-Burch/PP4-Django-Project",
             technologies: ["Django", "Python", "Bootstrap", "PostgreSQL"]
-          },
-          {
+        },
+        {
             id: 5,
             title: "House Price Prediction Model",
             description: "A machine learning model that predicts house prices based on various features like location, size, and amenities.",
@@ -50,7 +50,10 @@ const ProjectCarousel = () => {
             liveSite: "#",
             repository: "https://github.com/James-Burch/",
             technologies: ["Python", "Scikit-learn", "Pandas", "NumPy"]
-          }
+        }
     ];
-    
-}
+
+};
+
+export default ProjectCarousel;
+

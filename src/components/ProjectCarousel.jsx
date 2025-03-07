@@ -53,6 +53,96 @@ const ProjectCarousel = () => {
         }
     ];
 
+    // Function to handle manual navigation
+    const navigate = (direction) => {
+        if (direction === 'prev') {
+            setActiveIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+        } else {
+            setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+        }
+    };
+
+    return (
+        <div className="project-carousel-container">
+            <div className="project-carousel">
+                {projects.map((project, index) => (
+                    <div
+                        key={project.id}
+                        className={`carousel-item ${activeIndex === index ? 'active' : ''}`}
+                    >
+                        <div className="flip-card">
+                            <div className="flip-card-inner">
+                                {/* Front: Project Image */}
+                                <div className="flip-card-front">
+                                    <img
+                                        src={project.image}
+                                        className="project-img"
+                                        alt={project.title}
+                                    />
+                                </div>
+                                {/* Back: Project Details */}
+                                <div className="flip-card-back">
+                                    <h5>{project.title}</h5>
+                                    <p>{project.description}</p>
+                                    <div className="tech-tags">
+                                        {project.technologies.map((tech, i) => (
+                                            <span key={i} className="tech-tag">{tech}</span>
+                                        ))}
+                                    </div>
+                                    <div className="project-links">
+                                        <a
+                                            href={project.liveSite}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="project-link"
+                                        >
+                                            Live Site
+                                        </a>
+                                        <a
+                                            href={project.repository}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="project-link"
+                                        >
+                                            Repository
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+
+                {/* Navigation Controls */}
+                <button
+                    className="carousel-control carousel-control-prev"
+                    onClick={() => navigate('prev')}
+                    aria-label="Previous project"
+                >
+                    <span className="carousel-control-icon">←</span>
+                </button>
+                <button
+                    className="carousel-control carousel-control-next"
+                    onClick={() => navigate('next')}
+                    aria-label="Next project"
+                >
+                    <span className="carousel-control-icon">→</span>
+                </button>
+
+                {/* Navigation Dots */}
+                <div className="carousel-indicators">
+                    {projects.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`carousel-indicator ${activeIndex === index ? 'active' : ''}`}
+                            onClick={() => setActiveIndex(index)}
+                            aria-label={`Go to project ${index + 1}`}
+                        />
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default ProjectCarousel;

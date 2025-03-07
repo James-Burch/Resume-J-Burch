@@ -67,7 +67,6 @@ html {
 
 /* ------------------------------------- Navbar Styles */
 
-/* Navbar Styles */
 .navbar {
   position: fixed;
   top: 0;
@@ -205,7 +204,6 @@ html {
 
 /* ------------------------------------- Hero Styles */
 
-/* Hero Section Styles */
 .hero-section {
   min-height: 100vh;
   display: flex;
@@ -293,7 +291,6 @@ html {
 
 /* ------------------------------------- About Styles */
 
-/* About Section Styles */
 .about-section {
   background-color: #fff;
   padding: 5rem 0;
@@ -379,7 +376,7 @@ html {
   }
 }
 
-/* ------------------------------------- Navbar Styles */
+/* ------------------------------------- Project Carousel Styles */
 
 
 

@@ -90,16 +90,16 @@ const ProjectCarousel = () => {
                                         ))}
                                     </div>
                                     <div className="project-links">
-                                        <a
-                                            href={project.liveSite}
+
+                                        <a href={project.liveSite}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="project-link"
                                         >
                                             Live Site
                                         </a>
-                                        <a
-                                            href={project.repository}
+
+                                        <a href={project.repository}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="project-link"
@@ -111,7 +111,8 @@ const ProjectCarousel = () => {
                             </div>
                         </div>
                     </div>
-                ))}
+                ))
+                }
 
                 {/* Navigation Controls */}
                 <button
@@ -140,10 +141,9 @@ const ProjectCarousel = () => {
                         />
                     ))}
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
 export default ProjectCarousel;
-

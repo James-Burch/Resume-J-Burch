@@ -203,7 +203,7 @@ html {
   }
 }
 
-/* ---------------------------------- Hero styles */
+/* ------------------------------------- Hero Styles */
 
 /* Hero Section Styles */
 .hero-section {
@@ -290,3 +290,101 @@ html {
     text-align: center;
   }
 }
+
+/* ------------------------------------- About Styles */
+
+/* About Section Styles */
+.about-section {
+  background-color: #fff;
+  padding: 5rem 0;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.skills-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.skills-container h3 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.skill-category {
+  flex: 1;
+  min-width: 200px;
+}
+
+.skill-category h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.skill-category ul {
+  list-style-type: none;
+}
+
+.skill-category li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.skill-category li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about-text,
+  .skills-container {
+    width: 100%;
+  }
+
+  .skills-list {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+/* ------------------------------------- Navbar Styles */
+
+
+
+/* ------------------------------------- Navbar Styles */
+
+
+
+/* ------------------------------------- Navbar Styles */

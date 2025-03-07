@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import "./index.css";
+import About from "./components/About";
 
 const App = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -23,7 +24,7 @@ const App = () => {
         </section>
 
         <section id="about">
-          <h3>About</h3>
+          <About />
         </section>
 
         <section id="projects">

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 import "./index.css";
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
       <Navbar activeSection={activeSection} onNavigate={navigateToSection} />
       <main>
         <section id="home">
-          <h3>Home</h3>
+          <Hero />
         </section>
 
         <section id="about">

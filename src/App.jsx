@@ -1,31 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
 import "./index.css";
 
 const App = () => {
+  const [activeSection, setActiveSection] = useState("home");
+
+  const navigateToSection = (sectionId) => {
+    setActiveSection(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="app">
-      <header>
-        {/* Navbar will go here */}
-      </header>
-      
+      <Navbar activeSection={activeSection} onNavigate={navigateToSection} />
       <main>
         <section id="home">
-          {/* Hero will go here */}
+          <h3>Home</h3>
         </section>
-        
+
         <section id="about">
-          {/* About will go here */}
+          <h3>About</h3>
         </section>
-        
+
         <section id="projects">
-          {/* Projects will go here */}
+          <h3>Projects</h3>
         </section>
-        
+
         <section id="contact">
-          {/* Contact will go here */}
+          <h3>Contact</h3>
         </section>
       </main>
-      
+
       <footer className="main-footer">
         <div className="container">
           <p>&copy; {new Date().getFullYear()} James Burch. All rights reserved.</p>

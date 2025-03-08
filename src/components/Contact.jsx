@@ -78,6 +78,80 @@ const Contact = () => {
                             </div>
                         </div>
                     </div>
+                    <div className="contact-form-container">
+                        <h3>Send Me a Message</h3>
+                        {formStatus === "success" ? (
+                            <div className="form-success">
+                                <p>Thanks for your message! I'll get back to you soon.</p>
+                                <button onClick={() => setFormStatus(null)} className="btn btn-primary">
+                                    Send Another Message
+                                </button>
+                            </div>
+                        ) : (
+                            <form
+                                name="contact"
+                                method="POST"
+                                data-netlify="true"
+                                onSubmit={handleSubmit}
+                                className="contact-form"
+                            >
+                                <input type="hidden" name="form-name" value="contact" />
+
+                                <div className="form-group">
+                                    <label htmlFor="name">Name</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        placeholder="James Burch"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="email">Email</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="jamesburch@example.com"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="message">Message</label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        placeholder="Hi James, I have an idea for an app I think you would love to contribute to!..."
+                                        rows="5"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        required
+                                    ></textarea>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="btn btn-primary"
+                                    disabled={formStatus === "submitting"}
+                                >
+                                    {formStatus === "submitting" ? "Sending..." : "Send Message"}
+                                </button>
+
+                                {formStatus === "error" && (
+                                    <p className="form-error">
+                                        Something went wrong. Please try again or email me directly.
+                                    </p>
+                                )}
+                            </form>
+                        )}
+                    </div>
                 </div>
             </div>
         </section>

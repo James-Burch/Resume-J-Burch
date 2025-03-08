@@ -901,4 +901,48 @@ html {
   gap: 1.5rem;
 }
 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-success {
+  background-color: rgba(40, 167, 69, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.form-success p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.form-error {
+  color: var(--danger-color);
+  margin-top: 0.5rem;
+}
+
 /* ------------------------------------- Navbar Styles */

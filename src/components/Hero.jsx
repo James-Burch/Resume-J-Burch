@@ -7,9 +7,6 @@ const Hero = () => {
                 <div className="hero-content">
                     <h1>Hi, I'm James Burch</h1>
                     <h2>Full Stack Software Engineer</h2>
-                    <p>
-                        Insert Brief Description Here
-                    </p>
                     <div className="hero-cta">
                         <a href="#projects" className="btn btn-primary">
                             View My Work

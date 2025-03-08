@@ -5,6 +5,47 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 
 const Contact = () => {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: ""
+    });
+    const [formStatus, setFormStatus] = useState(null);
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setFormStatus("submitting");
+
+        try {
+            // Using Netlify's built-in form handling
+            const response = await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams({
+                    "form-name": "contact",
+                    ...formData
+                }).toString()
+            });
+
+            if (response.ok) {
+                setFormStatus("success");
+                setFormData({ name: "", email: "", message: "" });
+            } else {
+                throw new Error("Form submission failed");
+            }
+        } catch (error) {
+            console.error(error);
+            setFormStatus("error");
+        }
+    };
+
 
     return (
         <section id="contact" className="contact-section">

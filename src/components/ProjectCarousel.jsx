@@ -9,7 +9,7 @@ const ProjectCarousel = () => {
     const projects = [
         {
             id: 1,
-            title: "Realing Cambs",
+            title: "Realign Cambs",
             description: "My first ever project! A fully static website made for a local sports massage business using HTML and CSS.",
             image: "/images/project1hp.png",
             liveSite: "https://james-burch.github.io/PP1-CI/",

@@ -21,7 +21,6 @@ const Contact = () => {
             .then((result) => {
                 console.log('Email sent successfully:', result.text);
                 setFormStatus("success");
-                // Reset form fields
                 form.current.reset();
             }, (error) => {
                 console.error('Email sending failed:', error.text);

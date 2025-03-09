@@ -96,7 +96,6 @@ section:first-of-type {
   margin-top: 0;
 }
 
-/* Fix to ensure proper scrolling with fixed navbar */
 html {
   scroll-padding-top: 80px;
   /* Height of navbar */
@@ -443,10 +442,10 @@ html {
 
 .project-carousel {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 8px;
   box-shadow: 0 5px 15px var(--card-shadow);
-  height: 500px;
+  height: auto;
 }
 
 .carousel-item {
@@ -454,117 +453,171 @@ html {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 40px;
 }
 
 .carousel-item.active {
   opacity: 1;
   z-index: 1;
-}
-
-/* Flip Card Animation */
-.flip-card {
-  background-color: transparent;
-  width: 90%;
-  height: 90%;
-  perspective: 1000px;
-  margin: auto;
-}
-
-.flip-card-inner {
   position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
+/* Move indicators to the top */
+.top-indicators {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 8px;
-}
-
-.flip-card-front {
-  background-color: var(--card-bg);
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 0.5rem;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 5px 10px;
 }
 
-.flip-card-back {
-  background: linear-gradient(135deg, var(--primary-color), #2a82da);
-  color: white;
-  transform: rotateY(180deg);
-  padding: 2rem;
+/* Project Card */
+.project-card {
+  background-color: var(--card-bg);
+  width: 90%;
+  height: auto;
+  border-radius: 8px;
+  overflow: visible;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+/* Image Section */
+.project-card-image {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .project-img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  display: block;
-  margin: auto;
+  max-height: 100%;
 }
 
-.flip-card-back h5 {
-  font-size: 2rem;
-  margin-bottom: 1.2rem;
-  font-weight: 700;
-  position: relative;
-  display: inline-block;
+/* Title Bar */
+.project-title-bar {
+  background: linear-gradient(135deg, #4a8eff, #2a82da);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
 }
 
-.flip-card-back h5::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background-color: rgba(255, 255, 255, 0.8);
+.project-title-bar h5 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
-.flip-card-back p {
-  margin-bottom: 1.8rem;
+/* Read More Button */
+.read-more-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.read-more-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+  width: 200px;
+}
+
+.read-more-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.read-more-icon {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: white;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.read-more-text {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Description Area */
+.description-area {
+  background-color: #1e1e1e;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-description {
+  height: 80px;
+  /* Minimum height when collapsed */
+}
+
+/* Project Details Section */
+.project-card-details {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.project-card-details p {
+  margin: 0;
   font-size: 1.1rem;
   line-height: 1.6;
-  max-width: 90%;
-  text-align: center;
+  color: #f0f0f0;
 }
 
+/* Tech Tags */
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 0.8rem;
-  margin-bottom: 2rem;
+  justify-content: center;
 }
 
-
 .tech-tag {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--primary-color);
+  color: white;
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-size: 0.9rem;
@@ -575,31 +628,49 @@ html {
 
 .tech-tag:hover {
   transform: translateY(-3px);
-  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
-
+/* Project Links */
 .project-links {
   display: flex;
   gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .project-link {
   color: white;
   text-decoration: none;
   padding: 0.7rem 1.5rem;
-  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 50px;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   font-weight: 500;
+  justify-content: center;
+  min-width: 120px;
+}
+
+.live-site-link {
+  background-color: var(--primary-color);
+}
+
+.repo-link {
+  background-color: #2c3e50;
 }
 
 .project-link:hover {
-  background-color: rgba(0, 0, 0, 0.4);
   transform: translateY(-3px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.live-site-link:hover {
+  background-color: #1a73e8;
+}
+
+.repo-link:hover {
+  background-color: #34495e;
 }
 
 .project-link::before {
@@ -607,11 +678,11 @@ html {
   font-size: 1.1rem;
 }
 
-.project-link:first-child::before {
+.live-site-link::before {
   content: '🌐';
 }
 
-.project-link:last-child::before {
+.repo-link::before {
   content: '📂';
 }
 
@@ -648,16 +719,6 @@ html {
 }
 
 /* Carousel Indicators */
-.carousel-indicators {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.5rem;
-  z-index: 2;
-}
-
 .carousel-indicator {
   width: 12px;
   height: 12px;
@@ -669,6 +730,124 @@ html {
 
 .carousel-indicator.active {
   background-color: white;
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    padding-top: 35px;
+  }
+
+  .project-card-image {
+    height: 220px;
+  }
+
+  .project-title-bar h5 {
+    font-size: 1.4rem;
+  }
+
+  .read-more-btn {
+    padding: 6px 15px;
+    width: 160px;
+  }
+
+  .empty-description {
+    height: 60px;
+  }
+
+  .project-link {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-item {
+    padding-top: 30px;
+  }
+
+  .project-card-image {
+    height: 180px;
+  }
+
+  .project-title-bar h5 {
+    font-size: 1.2rem;
+  }
+
+  .read-more-btn {
+    padding: 5px 12px;
+    width: 140px;
+    font-size: 0.9rem;
+  }
+
+  .empty-description {
+    height: 50px;
+  }
+
+  .project-card-details p {
+    font-size: 0.95rem;
+  }
+
+  .tech-tags {
+    gap: 0.5rem;
+  }
+
+  .tech-tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .project-link {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .carousel-item {
+    padding-top: 25px;
+  }
+
+  .project-card-image {
+    height: 160px;
+  }
+
+  .project-title-bar {
+    padding: 10px;
+  }
+
+  .project-title-bar h5 {
+    font-size: 1.1rem;
+  }
+
+  .read-more-btn {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    width: 120px;
+  }
+
+  .empty-description {
+    height: 40px;
+  }
+
+  .tech-tag {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .project-links {
+    gap: 0.5rem;
+  }
+
+  .project-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    min-width: 100px;
+  }
+
+  .carousel-control {
+    padding: 0.5rem 0.25rem;
+  }
 }
 
 /* Projects Section Footer */
@@ -689,145 +868,6 @@ html {
   text-decoration: underline;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .project-carousel {
-    height: 500px;
-    /* Adjust if needed */
-  }
-
-  .flip-card {
-    width: 95%;
-    height: 95%;
-  }
-
-  .flip-card-front {
-    padding: 1rem;
-  }
-
-  /* Fix overflow issues */
-  .project-carousel-container {
-    overflow: hidden;
-  }
-
-  /* Adjust title size on smaller screens */
-  .flip-card-front h3,
-  .flip-card-back h5 {
-    font-size: 1.6rem;
-  }
-
-  /* Make buttons stack vertically on very small screens */
-  .project-links {
-    flex-direction: column;
-    gap: 0.8rem;
-    width: 100%;
-  }
-
-  .project-link {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* Adjust text size for readability */
-  .flip-card-front p,
-  .flip-card-back p {
-    font-size: 0.95rem;
-  }
-
-  /* Keep tech tags from overflowing */
-  .tech-tags {
-    max-width: 100%;
-    margin-bottom: 1.5rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .project-carousel {
-    height: 400px;
-  }
-
-  .project-links {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 360px) {
-
-  /* Make the carousel container fit */
-  .project-carousel {
-    height: 420px;
-  }
-
-  /* Make the card itself smaller */
-  .flip-card {
-    width: 100%;
-    height: 90%;
-  }
-
-  /* Reduce padding to maximize space */
-  .flip-card-front,
-  .flip-card-back {
-    padding: 0.75rem;
-  }
-
-  /* Shrink title further */
-  .flip-card-front h3,
-  .flip-card-back h5 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Further minimize the description */
-  .flip-card-front p,
-  .flip-card-back p {
-    font-size: 0.85rem;
-    margin-bottom: 0.75rem;
-    line-height: 1.4;
-  }
-
-  /* Make tech tags smaller */
-  .tech-tags {
-    gap: 0.4rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .tech-tag {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.75rem;
-  }
-
-  /* Maximize button space */
-  .project-links {
-    width: 100%;
-  }
-
-  .project-link {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
-  }
-
-  /* Adjust icon size */
-  .project-link::before {
-    font-size: 0.9rem;
-    margin-right: 0.3rem;
-  }
-
-  /* Adjust carousel controls */
-  .carousel-control {
-    padding: 0.5rem 0.25rem;
-  }
-
-  /* Make navigation dots smaller */
-  .carousel-indicator {
-    width: 8px;
-    height: 8px;
-  }
-}
 
 /* ------------------------------------- Contact Styles */
 

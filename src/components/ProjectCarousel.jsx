@@ -3,8 +3,9 @@ import React, { useState } from "react";
 const ProjectCarousel = () => {
     // State to track the active project
     const [activeIndex, setActiveIndex] = useState(0);
+    // State to track which projects have expanded details
+    const [expandedProjects, setExpandedProjects] = useState({});
 
-    // Project data array for easier management
     const projects = [
         {
             id: 1,
@@ -60,78 +61,22 @@ const ProjectCarousel = () => {
         } else {
             setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
         }
+        // Reset expanded state when navigating
+        setExpandedProjects({});
+    };
+
+    // Toggle project details expansion
+    const toggleProjectDetails = (projectId) => {
+        setExpandedProjects(prev => ({
+            ...prev,
+            [projectId]: !prev[projectId]
+        }));
     };
 
     return (
         <div className="project-carousel-container">
             <div className="project-carousel">
-                {projects.map((project, index) => (
-                    <div
-                        key={project.id}
-                        className={`carousel-item ${activeIndex === index ? 'active' : ''}`}
-                    >
-                        <div className="flip-card">
-                            <div className="flip-card-inner">
-                                {/* Front: Project Image */}
-                                <div className="flip-card-front">
-                                    <img
-                                        src={project.image}
-                                        className="project-img"
-                                        alt={project.title}
-                                    />
-                                </div>
-                                {/* Back: Project Details */}
-                                <div className="flip-card-back">
-                                    <h5>{project.title}</h5>
-                                    <p>{project.description}</p>
-                                    <div className="tech-tags">
-                                        {project.technologies.map((tech, i) => (
-                                            <span key={i} className="tech-tag">{tech}</span>
-                                        ))}
-                                    </div>
-                                    <div className="project-links">
-
-                                        <a href={project.liveSite}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="project-link"
-                                        >
-                                            Live Site
-                                        </a>
-
-                                        <a href={project.repository}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="project-link"
-                                        >
-                                            Repository
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))
-                }
-
-                {/* Navigation Controls */}
-                <button
-                    className="carousel-control carousel-control-prev"
-                    onClick={() => navigate('prev')}
-                    aria-label="Previous project"
-                >
-                    <span className="carousel-control-icon">←</span>
-                </button>
-                <button
-                    className="carousel-control carousel-control-next"
-                    onClick={() => navigate('next')}
-                    aria-label="Next project"
-                >
-                    <span className="carousel-control-icon">→</span>
-                </button>
-
-                {/* Navigation Dots */}
-                <div className="carousel-indicators">
+                <div className="carousel-indicators top-indicators">
                     {projects.map((_, index) => (
                         <button
                             key={index}
@@ -141,8 +86,92 @@ const ProjectCarousel = () => {
                         />
                     ))}
                 </div>
-            </div >
-        </div >
+
+                {projects.map((project, index) => (
+                    <div
+                        key={project.id}
+                        className={`carousel-item ${activeIndex === index ? 'active' : ''}`}
+                    >
+                        <div className="project-card">
+                            <div className="project-card-image">
+                                <img
+                                    src={project.image}
+                                    className="project-img"
+                                    alt={project.title}
+                                />
+                            </div>
+
+                            <div className="read-more-container">
+                                <button
+                                    className={`read-more-btn ${expandedProjects[project.id] ? 'expanded' : ''}`}
+                                    onClick={() => toggleProjectDetails(project.id)}
+                                    aria-expanded={expandedProjects[project.id] || false}
+                                    aria-label={expandedProjects[project.id] ? "Hide details" : "Read more"}
+                                >
+                                    <span className="read-more-icon">
+                                        {expandedProjects[project.id] ? "▲▲▲" : "▼▼▼"}
+                                    </span>
+                                    <span className="read-more-text">
+                                        {expandedProjects[project.id] ? "Read Less" : "Read More"}
+                                    </span>
+                                </button>
+                            </div>
+
+                            <div className="project-title-bar">
+                                <h5>{project.title}</h5>
+                            </div>
+
+                            <div className="description-area">
+                                {expandedProjects[project.id] ? (
+                                    <div className="project-card-details">
+                                        <p>{project.description}</p>
+                                        <div className="tech-tags">
+                                            {project.technologies.map((tech, i) => (
+                                                <span key={i} className="tech-tag">{tech}</span>
+                                            ))}
+                                        </div>
+                                        <div className="project-links">
+                                            <a href={project.liveSite}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="project-link live-site-link"
+                                            >
+                                                Live Site
+                                            </a>
+                                            <a href={project.repository}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="project-link repo-link"
+                                            >
+                                                Repository
+                                            </a>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="empty-description"></div>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Navigation Controls */}
+                        <button
+                            className="carousel-control carousel-control-prev"
+                            onClick={() => navigate('prev')}
+                            aria-label="Previous project"
+                        >
+                            <span className="carousel-control-icon">←</span>
+                        </button>
+                        <button
+                            className="carousel-control carousel-control-next"
+                            onClick={() => navigate('next')}
+                            aria-label="Next project"
+                        >
+                            <span className="carousel-control-icon">→</span>
+                        </button>
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 };
 

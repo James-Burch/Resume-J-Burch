@@ -49,8 +49,17 @@ const ProjectCarousel = () => {
             description: "A machine learning model that predicts house prices based on various features like location, size, and amenities.",
             image: "/images/project5hp.png",
             liveSite: "https://house-price-prediction-pp5-615997f77e23.herokuapp.com/",
-            repository: "https://github.com/James-Burch/",
+            repository: "https://github.com/James-Burch/PP5-ML-PROJECT",
             technologies: ["Python", "Scikit-learn", "Pandas", "NumPy"]
+        },
+        {
+            id: 6,
+            title: "Portfolio Website",
+            description: "A portfolio website to showcase all of my projects and to show I can learn new technologies and apply the knowledge",
+            image: "/images/project6hp.png",
+            liveSite: "https://jamesburch.netlify.app",
+            repository: "https://github.com/James-Burch/",
+            technologies: ["ReactJS", "CSS5", "EmailJS"]
         }
     ];
 

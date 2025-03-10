@@ -1,6 +1,7 @@
 import React from "react";
+import NavLink from "./NavLink";
 
-const Hero = () => {
+const Hero = ({ onNavigate }) => {
     return (
         <div className="hero-section">
             <div className="container">
@@ -8,12 +9,20 @@ const Hero = () => {
                     <h1>Hi, I'm James Burch</h1>
                     <h2>Full Stack Software Engineer</h2>
                     <div className="hero-cta">
-                        <a href="#projects" className="btn btn-primary">
+                        <NavLink
+                            to="#projects"
+                            className="btn btn-primary"
+                            onNavigate={onNavigate}
+                        >
                             View My Work
-                        </a>
-                        <a href="#contact" className="btn btn-outline">
+                        </NavLink>
+                        <NavLink
+                            to="#contact"
+                            className="btn btn-outline"
+                            onNavigate={onNavigate}
+                        >
                             Contact Me
-                        </a>
+                        </NavLink>
                     </div>
                 </div>
             </div>

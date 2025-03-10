@@ -28,6 +28,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .dark-mode {
   /* Dark mode */
   --primary-color: #4dabf7;

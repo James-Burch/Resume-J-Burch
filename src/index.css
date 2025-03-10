@@ -32,6 +32,10 @@ html {
   scroll-behavior: smooth;
 }
 
+a {
+  text-decoration: none;
+}
+
 .dark-mode {
   /* Dark mode */
   --primary-color: #4dabf7;

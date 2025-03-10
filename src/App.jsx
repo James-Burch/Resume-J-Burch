@@ -25,7 +25,7 @@ const App = () => {
         <Navbar activeSection={activeSection} onNavigate={navigateToSection} />
         <main>
           <section id="home">
-            <Hero />
+            <Hero onNavigate={navigateToSection} />
           </section>
 
           <section id="about">

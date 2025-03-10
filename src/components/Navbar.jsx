@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
+import NavLink from "./NavLink";
 
 const Navbar = ({ activeSection, onNavigate }) => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -15,15 +16,16 @@ const Navbar = ({ activeSection, onNavigate }) => {
     }, []);
 
     const handleNavClick = (sectionId) => {
-        onNavigate ? onNavigate(sectionId) : null;
         setMenuOpen(false);
     };
 
     return (
         <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
             <div className="container navbar-container">
-                <div className="navbar-logo" onClick={() => handleNavClick("home")}>
-                    <span className="logo-text">JB</span>
+                <div className="navbar-logo">
+                    <NavLink to="#home" onNavigate={onNavigate}>
+                        <span className="logo-text">JB</span>
+                    </NavLink>
                 </div>
 
                 {/* Mobile menu button */}
@@ -40,16 +42,16 @@ const Navbar = ({ activeSection, onNavigate }) => {
                 {/* Nav links */}
                 <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
                     <li className={activeSection === "home" ? "active" : ""}>
-                        <button onClick={() => handleNavClick("home")}>Home</button>
+                        <NavLink to="#home" onNavigate={onNavigate} isButton>Home</NavLink>
                     </li>
                     <li className={activeSection === "about" ? "active" : ""}>
-                        <button onClick={() => handleNavClick("about")}>About</button>
+                        <NavLink to="#about" onNavigate={onNavigate} isButton>About</NavLink>
                     </li>
                     <li className={activeSection === "projects" ? "active" : ""}>
-                        <button onClick={() => handleNavClick("projects")}>Projects</button>
+                        <NavLink to="#projects" onNavigate={onNavigate} isButton>Projects</NavLink>
                     </li>
                     <li className={activeSection === "contact" ? "active" : ""}>
-                        <button onClick={() => handleNavClick("contact")}>Contact</button>
+                        <NavLink to="#contact" onNavigate={onNavigate} isButton>Contact</NavLink>
                     </li>
                     <li>
                         <ThemeToggle />

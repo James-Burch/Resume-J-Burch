@@ -58,7 +58,7 @@ const ProjectCarousel = () => {
             description: "A portfolio website to showcase all of my projects and to show I can learn new technologies and apply the knowledge",
             image: "/images/project6hp.png",
             liveSite: "https://jamesburch.netlify.app",
-            repository: "https://github.com/James-Burch/",
+            repository: "https://github.com/James-Burch/Resume-J-Burch",
             technologies: ["ReactJS", "CSS5", "EmailJS"]
         }
     ];

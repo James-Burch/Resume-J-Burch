@@ -1,7 +1,6 @@
 import React from 'react';
 
 const BackgroundShape = ({ type, position, customStyles = {} }) => {
-    // Base styles for all shapes
     const baseStyle = {
         position: 'absolute',
         zIndex: '-1',
@@ -10,7 +9,6 @@ const BackgroundShape = ({ type, position, customStyles = {} }) => {
         ...customStyles
     };
 
-    // Define different shapes
     const getShapeStyles = () => {
         switch (type) {
             case 'circle':
@@ -51,7 +49,6 @@ const BackgroundShape = ({ type, position, customStyles = {} }) => {
         }
     };
 
-    // Define position styles
     const getPositionStyles = () => {
         switch (position) {
             case 'top-right':

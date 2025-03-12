@@ -6,7 +6,7 @@ const Hero = ({ onNavigate }) => {
         <div className="hero-section">
             <div className="container">
                 <div className="hero-content">
-                    <h1>Hi, I'm James Burch</h1>
+                    <h1>James Burch</h1>
                     <h2>Full Stack Software Engineer</h2>
                     <div className="hero-cta">
                         <NavLink

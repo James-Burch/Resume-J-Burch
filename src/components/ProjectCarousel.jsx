@@ -60,6 +60,15 @@ const ProjectCarousel = () => {
             liveSite: "https://jamesburch.netlify.app",
             repository: "https://github.com/James-Burch/Resume-J-Burch",
             technologies: ["ReactJS", "CSS5", "EmailJS"]
+        },
+        {
+            id: 7,
+            title: "Refine Barbers",
+            description: "A website built for a local barbers to allow their customers to book appointments and view different available services. Whilst allowing the barbers to have a dashboard to edit availability.",
+            image: "/images/project7hp-refine.png",
+            liveSite: "https://refinebarbers.netlify.app",
+            repository: "https://github.com/James-Burch/Refine-Barbers",
+            technologies: ["ReactJS", "Typescript", "MongoDB"]
         }
     ];
 

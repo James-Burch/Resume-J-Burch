@@ -139,6 +139,9 @@ const ModernProjectsGrid = () => {
                     max-width: 1200px;
                     margin: 0 auto;
                     padding: 2rem;
+                    width: 100%;
+                    box-sizing: border-box;
+                    overflow-x: hidden;
                 }
 
                 .projects-header {
@@ -172,6 +175,8 @@ const ModernProjectsGrid = () => {
                     background: var(--card-bg);
                     border-radius: 12px;
                     border: 1px solid var(--border-color);
+                    width: 100%;
+                    box-sizing: border-box;
                 }
 
                 .filter-tab {
@@ -200,9 +205,13 @@ const ModernProjectsGrid = () => {
 
                 .projects-grid {
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
                     gap: 2rem;
                     margin-bottom: 3rem;
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 0;
+                    box-sizing: border-box;
                 }
 
                 .project-card {
@@ -215,6 +224,9 @@ const ModernProjectsGrid = () => {
                     height: 100%;
                     display: flex;
                     flex-direction: column;
+                    width: 100%;
+                    max-width: 100%;
+                    box-sizing: border-box;
                 }
 
                 .project-card:hover {
@@ -363,19 +375,103 @@ const ModernProjectsGrid = () => {
                 }
 
                 @media (max-width: 768px) {
+                    .modern-projects-container {
+                        padding: 1rem 0.5rem;
+                        max-width: 100vw;
+                    }
+                    
                     .projects-grid {
                         grid-template-columns: 1fr;
                         gap: 1.5rem;
+                        margin: 0 auto 3rem auto;
+                        max-width: 100%;
                     }
                     
                     .filter-tabs {
-                        flex-direction: column;
-                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 0.25rem;
+                        justify-content: center;
+                        margin: 0 auto 2rem auto;
+                        max-width: 100%;
                     }
                     
                     .filter-tab {
-                        width: 100%;
-                        text-align: center;
+                        padding: 0.5rem 1rem;
+                        font-size: 0.9rem;
+                        margin-bottom: 0.25rem;
+                    }
+                    
+                    .projects-title {
+                        font-size: 2rem;
+                    }
+                    
+                    .projects-subtitle {
+                        font-size: 1rem;
+                        padding: 0 0.5rem;
+                    }
+                    
+                    .project-content {
+                        padding: 1.25rem;
+                    }
+                    
+                    .projects-stats {
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 1.5rem;
+                        margin: 2rem auto 0 auto;
+                        padding: 1.5rem;
+                        max-width: 100%;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .modern-projects-container {
+                        padding: 0.75rem 0.25rem;
+                        margin: 0;
+                        max-width: 100vw;
+                    }
+                    
+                    .projects-header {
+                        margin-bottom: 2rem;
+                        padding: 0 0.5rem;
+                    }
+                    
+                    .projects-title {
+                        font-size: 1.8rem;
+                    }
+                    
+                    .filter-tabs {
+                        padding: 0.25rem;
+                        margin: 0 0.25rem 2rem 0.25rem;
+                    }
+                    
+                    .filter-tab {
+                        padding: 0.4rem 0.8rem;
+                        font-size: 0.85rem;
+                    }
+                    
+                    .projects-grid {
+                        gap: 1rem;
+                        margin: 0 0.25rem 2rem 0.25rem;
+                    }
+                    
+                    .project-content {
+                        padding: 1rem;
+                    }
+                    
+                    .project-links {
+                        flex-direction: column;
+                        gap: 0.75rem;
+                    }
+                    
+                    .projects-stats {
+                        grid-template-columns: 1fr;
+                        gap: 1rem;
+                        padding: 1.25rem;
+                        margin: 2rem 0.25rem 0 0.25rem;
+                    }
+                    
+                    .stat-number {
+                        font-size: 1.75rem;
                     }
                 }
                 `}
@@ -470,8 +566,8 @@ const ModernProjectsGrid = () => {
                     <span className="stat-label">Technologies Used</span>
                 </div>
                 <div className="stat-item">
-                    <span className="stat-number">2+</span>
-                    <span className="stat-label">Years Learning</span>
+                    <span className="stat-number">13+</span>
+                    <span className="stat-label">Months Learning</span>
                 </div>
                 <div className="stat-item">
                     <span className="stat-number">100%</span>

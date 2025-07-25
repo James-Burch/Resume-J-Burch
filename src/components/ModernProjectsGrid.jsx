@@ -47,7 +47,7 @@ const ModernProjectsGrid = () => {
             repository: "https://github.com/James-Burch/PP4-Django-Project",
             technologies: ["Django", "Python", "Bootstrap", "PostgreSQL"],
             category: "fullstack",
-            featured: true
+            featured: false
         },
         {
             id: 5,

@@ -15,15 +15,39 @@ const Navbar = ({ activeSection, onNavigate }) => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Close mobile menu when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuOpen && !event.target.closest('.navbar')) {
+                setMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+        return () => document.removeEventListener('click', handleClickOutside);
+    }, [menuOpen]);
+
+    // Enhanced handleNavClick - closes menu AND navigates
     const handleNavClick = (sectionId) => {
-        setMenuOpen(false);
+        setMenuOpen(false); // Close the mobile menu
+        
+        // Small delay to allow menu close animation, then navigate
+        setTimeout(() => {
+            if (onNavigate) {
+                onNavigate(sectionId);
+            }
+        }, 100);
     };
 
     return (
         <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
             <div className="container navbar-container">
                 <div className="navbar-logo">
-                    <NavLink to="#home" onNavigate={onNavigate}>
+                    <NavLink 
+                        to="#home" 
+                        onNavigate={onNavigate}
+                        onMobileMenuClose={() => setMenuOpen(false)}
+                    >
                         <span className="logo-text">JB</span>
                     </NavLink>
                 </div>
@@ -42,16 +66,44 @@ const Navbar = ({ activeSection, onNavigate }) => {
                 {/* Nav links */}
                 <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
                     <li className={activeSection === "home" ? "active" : ""}>
-                        <NavLink to="#home" onNavigate={onNavigate} isButton>Home</NavLink>
+                        <NavLink 
+                            to="#home" 
+                            onNavigate={onNavigate} 
+                            onMobileMenuClose={() => setMenuOpen(false)}
+                            isButton
+                        >
+                            Home
+                        </NavLink>
                     </li>
                     <li className={activeSection === "about" ? "active" : ""}>
-                        <NavLink to="#about" onNavigate={onNavigate} isButton>About</NavLink>
+                        <NavLink 
+                            to="#about" 
+                            onNavigate={onNavigate} 
+                            onMobileMenuClose={() => setMenuOpen(false)}
+                            isButton
+                        >
+                            About
+                        </NavLink>
                     </li>
                     <li className={activeSection === "projects" ? "active" : ""}>
-                        <NavLink to="#projects" onNavigate={onNavigate} isButton>Projects</NavLink>
+                        <NavLink 
+                            to="#projects" 
+                            onNavigate={onNavigate} 
+                            onMobileMenuClose={() => setMenuOpen(false)}
+                            isButton
+                        >
+                            Projects
+                        </NavLink>
                     </li>
                     <li className={activeSection === "contact" ? "active" : ""}>
-                        <NavLink to="#contact" onNavigate={onNavigate} isButton>Contact</NavLink>
+                        <NavLink 
+                            to="#contact" 
+                            onNavigate={onNavigate} 
+                            onMobileMenuClose={() => setMenuOpen(false)}
+                            isButton
+                        >
+                            Contact
+                        </NavLink>
                     </li>
                     <li>
                         <ThemeToggle />

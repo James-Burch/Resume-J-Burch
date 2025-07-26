@@ -9,62 +9,6 @@ import SectionDivider from "./components/common/SectionDivider";
 import { DarkThemeProvider } from './context/DarkTheme';
 import "./index.css";
 
-
-// const App = () => {
-//   const [activeSection, setActiveSection] = useState("home");
-
-//   const navigateToSection = (sectionId) => {
-//     setActiveSection(sectionId);
-//     const element = document.getElementById(sectionId);
-//     if (element) {
-//       element.scrollIntoView({ behavior: "smooth" });
-//     }
-//   };
-
-//   return (
-//     <DarkThemeProvider>
-//       <div className="app">
-//         <Navbar activeSection={activeSection} onNavigate={navigateToSection} />
-//         <main>
-//           <section id="home">
-//             <Hero onNavigate={navigateToSection} />
-//           </section>
-
-//           <div className="container">
-//             <SectionDivider style="gradient" />
-//           </div>
-
-//           <section id="about">
-//             <About />
-//           </section>
-
-//           <div className="container">
-//             <SectionDivider style="gradient" />
-//           </div>
-
-//           <section id="projects">
-//             <Projects />
-//           </section>
-
-//           <div className="container">
-//             <SectionDivider style="gradient" />
-//           </div>
-
-//           <section id="contact">
-//             <Contact />
-//           </section>
-//         </main>
-
-//         <footer className="main-footer">
-//           <div className="container">
-//             <p>&copy; {new Date().getFullYear()} James Burch. All rights reserved.</p>
-//           </div>
-//         </footer>
-//       </div>
-//     </DarkThemeProvider>
-//   );
-// };
-
 const App = () => {
   const [activeSection, setActiveSection] = useState("home");
 
@@ -79,42 +23,6 @@ const App = () => {
   return (
     <DarkThemeProvider>
       <div className="app">
-        {/* Hero section shapes */}
-        <BackgroundShape 
-          type="triangle" 
-          position="top-left" 
-          customStyles={{ 
-            top: "150px", 
-            left: "5%", 
-            opacity: "0.06",
-            position: "absolute" 
-          }} 
-        />
-        <BackgroundShape 
-          type="circle" 
-          position="top-right" 
-          customStyles={{ 
-            top: "100px", 
-            right: "5%", 
-            width: "250px",
-            height: "250px",
-            opacity: "0.06",
-            position: "absolute" 
-          }} 
-        />
-        <BackgroundShape 
-          type="circle" 
-          position="bottom-right" 
-          customStyles={{ 
-            top: "500px", 
-            right: "15%", 
-            width: "180px",
-            height: "180px",
-            opacity: "0.06",
-            position: "absolute" 
-          }} 
-        />
-
         <Navbar activeSection={activeSection} onNavigate={navigateToSection} />
         <main>
           <section id="home">

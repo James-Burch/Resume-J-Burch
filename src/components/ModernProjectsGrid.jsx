@@ -87,7 +87,7 @@ const ModernProjectsGrid = () => {
             title: "Mortgage Advisor Site",
             description: "Professional mortgage advisory website with modern design and client-focused features.",
             image: "/images/project8hp.png",
-            liveSite: "https://ak-site.netlify.app",
+            liveSite: "https://mortgageuk.netlify.app",
             repository: "https://github.com/James-Burch/AK-site",
             technologies: ["ReactJS", "TypeScript"],
             category: "frontend",

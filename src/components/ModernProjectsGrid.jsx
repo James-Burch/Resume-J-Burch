@@ -92,6 +92,17 @@ const ModernProjectsGrid = () => {
             technologies: ["ReactJS", "TypeScript"],
             category: "frontend",
             featured: true
+        },
+        {
+            id: 9,
+            title: "Construction Website",
+            description: "Construction Website with image gallery to showcase work and smooth animations with mobile optimisation.",
+            image: "/images/project9hp.png",
+            liveSite: "https://demoforcdadbuild.netlify.app/",
+            repository: "https://github.com/James-Burch/paul-cdad-build-website",
+            technologies: ["ReactJS", "TailwindCSS"],
+            category: "frontend",
+            featured: true
         }
     ];
 
